@@ -187,7 +187,7 @@ export function flushPostFlushCbs(seen?: CountMap) {
 }
 
 const getId = (job: SchedulerJob | SchedulerCb) =>
-(job && job.id == null) ? Infinity : job.id
+(job == null || job.id == null) ? Infinity : job.id
 
 function flushJobs(seen?: CountMap) {
   isFlushPending = false
